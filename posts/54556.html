@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>arch-lightdm-xfce登录管理器美化 | 孤岛</title><meta name="keywords" content="arch,美化,xfce,lightdm"><meta name="author" content="Odyf"><meta name="copyright" content="Odyf"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="不知道是主题问题还是登录的一瞬间有一个画面撕裂的问题 文章参考链接 安装lightdm-webkit2-greeter1sudo pacman -S lightdm-webkit2-greeter  打开文件  1nano &#x2F;etc&#x2F;lightdm&#x2F;lightdm.conf  找到 第102行参数greeter-session，修改为下面的内容 1greeter-se">
+<meta property="og:type" content="article">
+<meta property="og:title" content="arch-lightdm-xfce登录管理器美化">
+<meta property="og:url" content="https://blog.gao4.top/posts/54556.html">
+<meta property="og:site_name" content="孤岛">
+<meta property="og:description" content="不知道是主题问题还是登录的一瞬间有一个画面撕裂的问题 文章参考链接 安装lightdm-webkit2-greeter1sudo pacman -S lightdm-webkit2-greeter  打开文件  1nano &#x2F;etc&#x2F;lightdm&#x2F;lightdm.conf  找到 第102行参数greeter-session，修改为下面的内容 1greeter-se">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-11-21T12:25:41.000Z">
+<meta property="article:modified_time" content="2020-12-15T12:22:58.359Z">
+<meta property="article:author" content="Odyf">
+<meta property="article:tag" content="arch">
+<meta property="article:tag" content="美化">
+<meta property="article:tag" content="xfce">
+<meta property="article:tag" content="lightdm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.gao4.top/posts/54556.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.2.0',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-12-15 12:22:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {
+  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }
+})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">9</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">15</div></a></div></div></div><hr/></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85lightdm-webkit2-greeter"><span class="toc-number">1.</span> <span class="toc-text">安装lightdm-webkit2-greeter</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E5%AD%98%E6%94%BE%E8%B7%AF%E5%BE%84"><span class="toc-number">1.1.</span> <span class="toc-text">主题存放路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%99%BB%E5%BD%95%E4%B8%BB%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">设置登录主题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E6%AC%A3%E8%B5%8F"><span class="toc-number"></span> <span class="toc-text">主题欣赏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lightdm-webkit-theme-aether"><span class="toc-number">0.1.</span> <span class="toc-text">lightdm-webkit-theme-aether</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lightdm-webkit-theme-litarvan"><span class="toc-number">0.2.</span> <span class="toc-text">lightdm-webkit-theme-litarvan</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lightdm-webkit-theme-tendou"><span class="toc-number">0.3.</span> <span class="toc-text">lightdm-webkit-theme-tendou</span></a></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">孤岛</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">arch-lightdm-xfce登录管理器美化</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-21T12:25:41.000Z" title="发表于 2020-11-21 12:25:41">2020-11-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-12-15T12:22:58.359Z" title="更新于 2020-12-15 12:22:58">2020-12-15</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>不知道是主题问题还是登录的一瞬间有一个画面撕裂的问题</p>
+<p>文章<a target="_blank" rel="noopener" href="https://www.v2ex.com/t/630589">参考链接</a></p>
+<h3 id="安装lightdm-webkit2-greeter"><a href="#安装lightdm-webkit2-greeter" class="headerlink" title="安装lightdm-webkit2-greeter"></a>安装lightdm-webkit2-greeter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S lightdm-webkit2-greeter</span><br></pre></td></tr></table></figure>
+
+<p>打开文件 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano &#x2F;etc&#x2F;lightdm&#x2F;lightdm.conf</span><br></pre></td></tr></table></figure>
+
+<p>找到 第102行参数greeter-session，修改为下面的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">greeter-session&#x3D;lightdm-webkit2-greeter</span><br></pre></td></tr></table></figure>
+
+<p>注意上面参数修改配置行102行</p>
+<p><img src="/img/Snipaste_2020-11-21_12-34-16.png" alt=" greeter-session"></p>
+<h4 id="主题存放路径"><a href="#主题存放路径" class="headerlink" title="主题存放路径"></a>主题存放路径</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#下载的主题保存在 &#x2F;usr&#x2F;share&#x2F;lightdm-webkit&#x2F;themes&#x2F;</span><br><span class="line">#可以直接用 git clone 到这个路径下</span><br></pre></td></tr></table></figure>
+
+<p>移动到主题目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;share&#x2F;lightdm-webkit&#x2F;themes&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>GIt clone 一个Github上星星最多的主题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;NoiSek&#x2F;Aether.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置登录主题"><a href="#设置登录主题" class="headerlink" title="设置登录主题"></a>设置登录主题</h4><p>编辑配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;lightdm&#x2F;lightdm-webkit2-greeter.conf</span><br></pre></td></tr></table></figure>
+
+<p>找到 <code>webkit_theme</code>，修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webkit_theme &#x3D; Aether</span><br></pre></td></tr></table></figure>
+
+<h2 id="主题欣赏"><a href="#主题欣赏" class="headerlink" title="主题欣赏"></a>主题欣赏</h2><h4 id="lightdm-webkit-theme-aether"><a href="#lightdm-webkit-theme-aether" class="headerlink" title="lightdm-webkit-theme-aether"></a><a target="_blank" rel="noopener" href="https://github.com/NoiSek/Aether">lightdm-webkit-theme-aether</a></h4><p><img src="/img/theme-showcase.gif" alt="Aether"></p>
+<h4 id="lightdm-webkit-theme-litarvan"><a href="#lightdm-webkit-theme-litarvan" class="headerlink" title="lightdm-webkit-theme-litarvan"></a><a target="_blank" rel="noopener" href="https://github.com/Litarvan/lightdm-webkit-theme-litarvan">lightdm-webkit-theme-litarvan</a></h4><p><img src="/img/68747470733a2f2f6c6974617276616e2e6769746875622e6.png" alt="litarvan"></p>
+<p><img src="/img/68747470733a2f2f6c6974617276616e2e6769746875622e7.png" alt="litarvan1"></p>
+<h4 id="lightdm-webkit-theme-tendou"><a href="#lightdm-webkit-theme-tendou" class="headerlink" title="lightdm-webkit-theme-tendou"></a><a target="_blank" rel="noopener" href="https://github.com/codehearts/lightdm-webkit-theme-tendou/">lightdm-webkit-theme-tendou</a></h4><p><img src="/img/screenshot.png" alt="lightdm-webkit-theme-tendou"></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Odyf</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.gao4.top/posts/54556.html">https://blog.gao4.top/posts/54556.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.gao4.top" target="_blank">孤岛</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/arch/">arch</a><a class="post-meta__tags" href="/tags/%E7%BE%8E%E5%8C%96/">美化</a><a class="post-meta__tags" href="/tags/xfce/">xfce</a><a class="post-meta__tags" href="/tags/lightdm/">lightdm</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/10377.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">arch-brtfs-快照-arch总结</div></div></a></div><div class="next-post pull-right"><a href="/posts/45862.html"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">arch-2020-xfce桌面安装美化</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/45862.html" title="arch-2020-xfce桌面安装美化"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-21</div><div class="title">arch-2020-xfce桌面安装美化</div></div></a></div><div><a href="/posts/54552.html" title="arch-2020-install"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-19</div><div class="title">arch-2020-install</div></div></a></div><div><a href="/posts/10377.html" title="arch-brtfs-快照-arch总结"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-23</div><div class="title">arch-brtfs-快照-arch总结</div></div></a></div></div></div></article></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Odyf</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
